@@ -1,2 +1,10 @@
-<h1>Tasks#new</h1>
-<p>Find me in app/views/tasks/new.html.erb</p>
+<h1>タスク登録フォーム</h1>
+<%= form_with model: @task, local: true do |form|%>
+  <%= form.label "タスク名:" %><br>
+  <%= form.text_field :title %><br><br>
+  <%= form.label "タスクメモ:" %><br>
+  <%= form.text_area :memo %><br>
+  <p><%= form.label "状態:" %><br>
+  <%= form.select(:status,[["下書き",0],["公開",1],["アーカイブ",2]])%></p>
+  <p><%= form.submit "登録"%></p>
+<% end %>

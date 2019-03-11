@@ -1,2 +1,10 @@
-<h1>Tasks#show</h1>
-<p>Find me in app/views/tasks/show.html.erb</p>
+<h4>タイトル：<%= @task.title%></h4>
+<h4>メモ：<%= @task.memo %></h4>
+<h4>状態：<%= @task.status %></h4>
+<h4>登録日：<%= @task.created_at.strftime("%Y年%m月%d日") %></h4>
+
+
+<%= link_to "一覧",tasks_path%>
+<%= link_to "編集",edit_task_path%>
+<%= link_to "削除", task_path, method: :delete, data:{confirm: "削除してもよろしいですか？"}%>
+

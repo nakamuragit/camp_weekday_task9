@@ -5,7 +5,7 @@ class CreateTasks < ActiveRecord::Migration[5.2]
       t.text :memo
       t.boolean :is_display, default: true 
       t.integer :status
-
+      
       t.timestamps
     end
   end
