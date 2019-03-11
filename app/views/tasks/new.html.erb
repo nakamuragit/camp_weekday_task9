@@ -1,4 +1,9 @@
 <h1>タスク登録フォーム</h1>
+<% if flash[:notice]%>
+  <% flash[:notice].each do |flash|%>
+    <p><font color = "red"><%= flash %></font></p>
+  <% end %>
+<%end%>
 <%= form_with model: @task, local: true do |form|%>
   <%= form.label "タスク名:" %><br>
   <%= form.text_field :title %><br><br>
@@ -8,3 +13,4 @@
   <%= form.select(:status,[["下書き",0],["公開",1],["アーカイブ",2]])%></p>
   <p><%= form.submit "登録"%></p>
 <% end %>
+<%= link_to "一覧",tasks_path%>

@@ -13,8 +13,11 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
-    @task.save 
-    redirect_to @task
+    if @task.save
+      redirect_to task_path(@task), notice: "タスクを登録しました。"
+    else
+      redirect_to new_task_path, notice: @task.errors.full_messages
+    end 
   end
 
   def edit
@@ -23,8 +26,11 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find(params[:id])
-    @task.update(task_params)
-    redirect_to @task
+    if @task.update(task_params)
+      redirect_to task_path(@task), notice: "タスクを更新しました。"
+    else
+      redirect_to edit_task_path, notice: @task.errors.full_messages
+    end
   end
 
   def destroy
