@@ -1,16 +1,15 @@
-<% if flash[:notice]%>
-  <% flash[:notice].each do |flash|%>
+<% if flash[:notice] %>
+  <% flash[:notice].each do |flash| %>
     <p><font color = "red"><%= flash %></font></p>
   <% end %>
 <% end %>
-  <%= form_with model: @task, local: true do |form| %>
-  <%= form.label "タスク名:" %><br>
-  <%= form.text_field :title %><br><br>
+<%= form_with model: @task, local: true do |form| %>
+  <p><%= form.label "タスク名:" %><br>
+  <%= form.text_field :title %></p>
   <%= form.label "タスクメモ:" %><br>
   <%= form.text_area :memo %><br>
   <p><%= form.label "状態:" %><br>
-  <%= form.select(:status,[["下書き",0],["公開",1],["アーカイブ",2]])%></p>
-  <p><%= form.submit "登録"%></p>
+  <%= form.select(:status,[["下書き","draft"],["公開","published"],["アーカイブ","archieved"]]) %></p>
+  <p><%= form.submit "登録" %></p>
 <% end %>
-
-<%= link_to "一覧", tasks_path%>
+<%= link_to "一覧", tasks_path %>

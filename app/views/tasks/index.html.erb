@@ -1,18 +1,19 @@
 <h1>タスク一覧</h1>
-
-<% @tasks.each_with_index do |task, index|%>
-<% if task.is_display == true %>
-<ul><li>
-      <% if task.status == "draft"
-          @color = "#FF0000"
-         elsif task.status == "published"
-          @color = "#0000FF"
-         elsif task.status == "archieved"
-          @color = "#008000"
-         end %>
-<%= link_to task.title, task,:style=> "color:" + @color %> <%= task.created_at.strftime("%Y年%m月%d日") %>
-</li></ul>
-<%end%>
-<%end%>
-<%= link_to "出品する", new_task_path%>
-<%= link_to "非表示一覧", tasks_hide_path%>
+<% @tasks.each_with_index do |task, index| %>
+  <% if task.is_display == true %>
+    <ul>
+      <li>
+        <% if task.status == "draft"
+            @color = "#FF0000"
+          elsif task.status == "published"
+            @color = "#0000FF"
+          elsif task.status == "archieved"
+            @color = "#008000"
+          end %>
+        <%= link_to task.title, task,:style=> "color:" + @color %> <%= task.created_at.strftime("%Y年%m月%d日") %>
+      </li>
+    </ul>
+  <% end %>
+<% end %>
+<%= link_to "出品する", new_task_path %>
+<%= link_to "非表示一覧", tasks_hide_path %>
