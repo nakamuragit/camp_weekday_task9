@@ -10,7 +10,7 @@
   <%= form.label "タスクメモ:" %><br>
   <%= form.text_area :memo %><br>
   <p><%= form.label "状態:" %><br>
-  <%= form.select(:status,[["下書き",0],["公開",1],["アーカイブ",2]])%></p>
+  <%= form.select(:status,[["下書き","draft"],["公開","published"],["アーカイブ","archieved"]])%></p>
   <p><%= form.submit "登録"%></p>
 <% end %>
 <%= link_to "一覧",tasks_path%>
