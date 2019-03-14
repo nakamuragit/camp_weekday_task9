@@ -1,7 +1,9 @@
+<h2>タスク更新フォーム</h2>
 <% if flash[:notice] %>
-  <% flash[:notice].each do |flash| %>
+  <% flash.now[:notice].each do |flash| %>
     <p><font color = "red"><%= flash %></font></p>
   <% end %>
+<% flash[:notice] = nil %>
 <% end %>
 <%= form_with model: @task, local: true do |form| %>
   <p><%= form.label "タスク名:" %><br>

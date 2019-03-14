@@ -30,7 +30,6 @@ class TasksController < ApplicationController
     if @task.update(task_params)
       redirect_to task_path(@task), notice: "タスクを更新しました。"
     else
-      #redirect_to edit_task_path, notice: @task.errors.full_messages
       flash[:notice] = @task.errors.full_messages
       render :edit 
     end

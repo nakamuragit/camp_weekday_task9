@@ -3,6 +3,7 @@
   <% flash[:notice].each do |flash| %>
     <p><font color = "red"><%= flash %></font></p>
   <% end %>
+<% flash[:notice] = nil %>
 <% end %>
 <%= form_with model: @task, local: true do |form| %>
   <%= form.label "タスク名:" %><br>
